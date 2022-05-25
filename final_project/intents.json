@@ -1,0 +1,828 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "How are you",
+                "Is anyone there?",
+                "Hey",
+                "Hola",
+                "Hello",
+                "Good day"
+            ],
+            "responses": [
+                "Hello, thanks for asking",
+                "Good to see you again",
+                "Hi there, how can I help?"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Nice chatting to you, bye",
+                "Till next time"
+            ],
+            "responses": [
+                "See you!",
+                "Have a nice day",
+                "Bye! Come back again soon."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Awesome, thanks",
+                "Thanks for helping me"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [],
+            "responses": [
+                "Sorry, can't understand you",
+                "Please give me more info",
+                "Not sure I understand"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "options",
+            "patterns": [
+                "How you could help me?",
+                "What help you provide?",
+                "How you can be helpful?"
+            ],
+            "responses": [
+                "",
+                "I can provide solution related to following problems "
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "data_definition",
+            "patterns": [
+                "what is data",
+                "data defination"
+            ],
+            "responses": [
+                "Data can be defined as a representation of facts, concepts, or instructions in a formalized manner, which should be suitable for communication, interpretation, or processing by human or electronic machine. Data is represented with the help of characters such as alphabets (A-Z, a-z), digits (0-9) or special characters (+,-,/,*,<,>,= etc.)"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "info_definition",
+            "patterns": [
+                "what is information",
+                "information defination"
+            ],
+            "responses": [
+                "Information is organized or classified data, which has some meaningful values for the receiver. Information is the processed data on which decisions and actions are based."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "python_defination",
+            "patterns": [
+                "what is python",
+                "List of components"
+            ],
+            "responses": [
+                "Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small- and large-scale projects",
+                "Python was created by Guido van Rossum, and released in 1991. It is a general-purpose computer programming language. It is a high-level, object-oriented language which can run equally on different platforms such as Windows, Linux, UNIX, and Macintosh. Its high-level built-in data structures, combined with dynamic typing and dynamic binding. It is widely used in data science, machine learning and artificial intelligence domain."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "applications of Python",
+            "patterns": [
+                "What are the applications of python",
+                "Explain applications of python",
+                "Mention applications of python"
+            ],
+            "responses": [
+                "Web and Internet Development, Games, Scientific and computational applications, Language development, Image processing and graphic design applications, Enterprise and business applications development, Operating systems, GUI based desktop applications"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Advantages of Python",
+            "patterns": [
+                "What are the advantages of python",
+                "Explain advantages of python",
+                "Mention advantages of python"
+            ],
+            "responses": [
+                "1 Python is Interpreted language. 2 It is Free and open source. 3 It is Extensible. 4 Object-oriented. 5 It has Built-in data structure. 6 Readability. 7 High-Level Language. 8 Cross-platform. 9 Portable."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Interpreted language",
+            "patterns": [
+                "What are the Interpreted",
+                "Explain Interpreted"
+            ],
+            "responses": [
+                "Python does not require prior compilation of code and executes instructions directly."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Free and open source",
+            "patterns": [
+                "Free and open source"
+            ],
+            "responses": [
+                "Python is an open-source project which is publicly available to reuse. It can be downloaded free of cost."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Extensible",
+            "patterns": [
+                "Extensible"
+            ],
+            "responses": [
+                "Python is very flexible and extensible with any module."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Object-oriented",
+            "patterns": [
+                "Object-oriented"
+            ],
+            "responses": [
+                "Python allows to implement the Object-Oriented concepts to build application solution."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Built-in data structure",
+            "patterns": [
+                "Built-in data structure"
+            ],
+            "responses": [
+                "Tuple, List, and Dictionary are useful integrated data structures provided by the language."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Portable",
+            "patterns": [
+                "Portable"
+            ],
+            "responses": [
+                "Python programs can run on cross platforms without affecting its performance."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Literals",
+            "patterns": [
+                "What is Literals",
+                "What do you mean by literals"
+            ],
+            "responses": [
+                "Literals can be defined as a data which is given in a variable or constant. Python supports String Literals, numeric literals integer, float and complex, Boolean Literals true or false, Special literals like null"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "String literal",
+            "patterns": [
+                "String literal"
+            ],
+            "responses": [
+                "String literals are formed by enclosing text in the single or double quotes. For example, string literals are string values."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Numeric literal",
+            "patterns": [
+                "Numeric literal"
+            ],
+            "responses": [
+                "Python supports three types of numeric literals integer, float and complex."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Boolean literal",
+            "patterns": [
+                "Boolean literals"
+            ],
+            "responses": [
+                "Boolean literals are used to denote Boolean values. It contains either True or False."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Special literals",
+            "patterns": [
+                ""
+            ],
+            "responses": "Python contains one special literal, that is, 'None'. This special literal is used for defining a null variable. If 'None' is compared with anything else other than a 'None', it will return false.",
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "functions",
+            "patterns": [
+                "What are functions",
+                "Explain functions"
+            ],
+            "responses": [
+                "A function is a section of the program or a block of code that is written once and can be executed whenever required in the program. A function is a block of self-contained statements which has a valid name, parameters list, and body. Functions make programming more functional and modular to perform modular tasks. Python provides several built-in functions to complete tasks and also allows a user to create new functions as well. There are three types of functions, Built In Functions: copy, len, count are the some builtin functions. User defined Functions: Functions which are defined by a user known as user defined functions. Anonymous functions, These functions are also known as lambda functions because they are not declared with the standard def keyword."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "break statement",
+            "patterns": [
+                "What is break statement",
+                "Explain break statement"
+            ],
+            "responses": [
+                "The break statement is used to terminate the execution of the current loop. Break always breaks the current execution and transfer control to outside the current block. If the block is in a loop, it exits from the loop, and if the break is in a nested loop, it exits from the innermost loop."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "tuple",
+            "patterns": [
+                "What is tuple",
+                "Explain tuple"
+            ],
+            "responses": [
+                "A tuple is a built-in data collection type. It allows us to store values in a sequence. It is immutable, so no change is reflected in the original data. It uses () brackets rather than [] square brackets to create a tuple. We cannot remove any element but can find in the tuple. We can use indexing to get elements. It also allows traversing elements in reverse order by using negative indexing. Tuple supports various methods like max(), sum(), sorted(), Len() etc."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "operators",
+            "patterns": [
+                "What is operator",
+                "Explain operators",
+                "what are the types of operators"
+            ],
+            "responses": [
+                "An operator is a particular symbol which is used on some values and produces an output as a result. An operator works on operands. Operands are numeric literals or variables which hold some values. Operators can be unary, binary or ternary. An operator which requires a single operand known as a unary operator, which require two operands known as a binary operator and which require three operands is called ternary operator. Python uses a rich set of operators to perform a variety of operations. Some individual operators like membership and identity operators are not so familiar but allow to perform operations. Arithmetic Operators, Relational Operators, Assignment Operator, Logical Operators, Membership Operators, Identity Operators, Bitwise Operators."
+            ]
+        },
+        {
+            "tag": "namespace",
+            "patterns": [
+                "What is namespace",
+                "Explain namespace"
+            ],
+            "responses": [
+                "The namespace is a fundamental idea to structure and organize the code that is more useful in large projects. However, it could be a bit difficult concept to grasp if you're new to programming. Hence, we tried to make namespaces just a little easier to understand. A namespace is defined as a simple system to control the names in a program. It ensures that names are unique and won't lead to any conflict. Also, Python implements namespaces in the form of dictionaries and maintains name-to-object mapping where names act as keys and the objects as values."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "iterators",
+            "patterns": [
+                "What are iterators",
+                "Explain iterators"
+            ],
+            "responses": [
+                "In Python, iterators are used to iterate a group of elements, containers like a list. Iterators are the collection of items, and it can be a list, tuple, or a dictionary. Python iterator implements __itr__ and next() method to iterate the stored elements. In Python, we generally use loops to iterate over the collections (list, tuple). In simple words: Iterators are objects which can be traversed though or iterated upon."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Slicing",
+            "patterns": [
+                "What is Slicing",
+                "Explain Slicing"
+            ],
+            "responses": [
+                "Slicing is a mechanism used to select a range of items from sequence type like list, tuple, and string. It is beneficial and easy to get elements from a range by using slice way. It requires a : (colon) which separates the start and end index of the field. All the data collection types List or tuple allows us to use slicing to fetch elements. Although we can get elements by specifying an index, we get only single element whereas using slicing we can get a group of elements."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "dictionary",
+            "patterns": [
+                "What is dictionary",
+                "Explain dictionary"
+            ],
+            "responses": [
+                "The Python dictionary is a built-in data type. It defines a one-to-one relationship between keys and values. Dictionaries contain a pair of keys and their corresponding values. It stores elements in key and value pairs. The keys are unique whereas values can be duplicate. The key accesses the dictionary elements."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "pass",
+            "patterns": [
+                "What is pass",
+                "Explain pass"
+            ],
+            "responses": [
+                "Pass specifies a Python statement without operations. It is a placeholder in a compound statement. If we want to create an empty class or functions, the pass keyword helps to pass the control without error."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "pickling and unpickling",
+            "patterns": [
+                "What is pickling and unpickling",
+                "Explain pickling and unpickling"
+            ],
+            "responses": [
+                "The Python pickle is defined as a module which accepts any Python object and converts it into a string representation. It dumps the Python object into a file using the dump function; this process is called Pickling. The process of retrieving the original Python objects from the stored string representation is called as Unpickling."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Type conversion",
+            "patterns": [
+                "What is Type conversion",
+                "Explain Type conversion"
+            ],
+            "responses": [
+                "Type conversion refers to the conversion of one data type into another. int converts any data type into integer type, float converts any data type into float type, ord converts characters into integer, hex converts integers to hexadecimal, oct converts integer to octal, tuple This function is used to convert to a tuple, set This function returns the type after converting to set, list This function is used to convert any data type to a list type, dict This function is used to convert a tuple of order key, value into a dictionary, str Used to convert integer into a string., complex This function converts real numbers to complex number."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "init",
+            "patterns": [
+                "What is init",
+                "Explain init"
+            ],
+            "responses": [
+                "The init is a method or constructor in Python. This method is automatically called to allocate memory when a new object/ instance of a class is created. All classes have the init method."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "self",
+            "patterns": [
+                "What is self",
+                "Explain self"
+            ],
+            "responses": [
+                "Self is an instance or an object of a class. In Python, this is explicitly included as the first parameter. However, this is not the case in Java where it's optional. It helps to differentiate between the methods and attributes of a class with local variables. The self-variable in the init method refers to the newly created object while in other methods, it refers to the object whose method was called."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "PYTHONPATH",
+            "patterns": [
+                "What is PYTHONPATH",
+                "Explain PYTHONPATH"
+            ],
+            "responses": [
+                "PYTHONPATH is an environment variable which is used when a module is imported. Whenever a module is imported, PYTHONPATH is also looked up to check for the presence of the imported modules in various directories. The interpreter uses it to determine which module to load."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "machine_learning_definition",
+            "patterns": [
+                "what do you understand by machine learning",
+                "what is machine learning",
+                "machine learning",
+                "explain machine learning"
+            ],
+            "responses": [
+                "Machine learning is the form of Artificial Intelligence that deals with system programming and automates data analysis to enable computers to learn and act through experiences without being explicitly programmed."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "inductive_learning_definition",
+            "patterns": [
+                "inductive learning",
+                "what is inductive learning"
+            ],
+            "responses": [
+                "Inductive Learning, also known as Concept Learning, is how AI systems attempt to use a generalized rule to carry out observations.",
+                "Inductive learning also called Concept Learning is a way in which AI systems try to use a generalized rule to carry out observations. The data is obtained as a result of machine learning or from domain experts like humans where it is used to drive algorithms often called the Inductive Learning Algorithms ILA that are used to generate a set of classification rules. These rules that are generated are in the If this then that form.",
+                "Inductive learning is the same as what we commonly know as traditional supervised learning. We build and train a machine learning model based on a labelled training dataset we already have. Then we use this trained model to predict the labels of a testing dataset which we have never encountered before.",
+                "Inductive Learning is where we are given examples of a function in the form of data (x) and the output of the function (f(x)). The goal of inductive learning is to learn the function for new data (x)."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Machine Learning Application",
+            "patterns": [
+                "Any Machine learning Application",
+                "Application of machine learning in real world"
+            ],
+            "responses": [
+                "Image recognition. Speech recognition. Medical diagnosis. Statistical arbitrage. Predictive analytics. Extraction."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Artificial Intelligence",
+            "patterns": [
+                "What is artificial Intelligence",
+                "What do you understand from AI"
+            ],
+            "response": [
+                "Artificial Intelligence uses numerous Machine Learning and Deep Learning techniques that enable computer systems to perform tasks using human-like intelligence with logic and rules."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "supervised and unsupervised machine learning algorithm",
+            "patterns": [
+                "What is the difference between supervised and unsupervised machine learning",
+                "Explain supervised and unsupervised algorithm",
+                "Explain supervised machine learning algorithm",
+                "Explain unsupervised machine learning algorithm"
+            ],
+            "responses": [
+                "Supervised learning: The algorithms of supervised learning use labeled data to get trained. The models take direct feedback to confirm whether the output that is being predicted is, indeed, correct. Moreover, both the input data and the output data are provided to the model, and the main aim here is to train the model to predict the output upon receiving new data. Supervised learning offers accurate results and can largely be divided into two parts, classification and regression. Unsupervised learning: The algorithms of unsupervised learning use unlabeled data for training purposes. In unsupervised learning, the models identify hidden data trends and do not take any feedback. The unsupervised learning model is only provided with input data. Unsupervised learnings main aim is to identify hidden patterns to extract information from unknown sets of data. It can also be classified into two parts, clustering and associations. Unfortunately, unsupervised learning offers results that are comparatively less accurate."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Machine Learning algorithm",
+            "patterns": [
+                "Any Machine learning Algorithm",
+                "State 5 Machine learning Algorithm"
+            ],
+            "responses": [
+                "1 Decision Trees, 2 Neural Networks or back propagation, 3 Probabilistic networks, 4 Nearest Neighbor, 5 Support vector machines"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Types of machine Learning algorithm",
+            "patterns": [
+                "What are types of machine Learning algorithm",
+                "What are the different Algorithm techniques in Machine Learning"
+            ],
+            "responses": [
+                "Supervised Learning, Unsupervised Learning, Semi-supervised Learning, Reinforcement Learning, Transduction, Learning to Learn"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Examples of supervised Learning",
+            "patterns": [
+                "State examples of supervised learning",
+                " Explain what is the function of Supervised Learning"
+            ],
+            "responses": [
+                "Classifications, Speech recognition, Regression, Predict time series, Annotate strings"
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Clustering",
+            "patterns": [
+                "What is clustering",
+                "Explain clustering"
+            ],
+            "responses": [
+                "Clustering is a technique used in unsupervised learning that involves grouping data points. The clustering algorithm can be used with a set of data points. This technique will allow you to classify all data points into their particular groups. The data points that are thrown into the same category have similar features and properties, while the data points that belong to different groups have distinct features and properties."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "K means Clustering",
+            "patterns": [
+                "What is K means clustering",
+                "Explain  K means clustering"
+            ],
+            "responses": [
+                "This algorithm is commonly used when there is data with no specific group or category. K-means clustering allows you to find the hidden patterns in the data, which can be used to classify the data into various groups. The variable k is used to represent the number of groups the data is divided into, and the data points are clustered using the similarity of features. Here, the centroids of the clusters are used for labeling new data."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Classification",
+            "patterns": [
+                "What is classification",
+                "Explain  Classification"
+            ],
+            "responses": [
+                "In classification, a Machine Learning model is created that assists in differentiating data into separate categories. The data is labeled and categorized based on the input parameters."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": " Regression",
+            "patterns": [
+                "What is  Regression",
+                "Explain  Regression"
+            ],
+            "responses": [
+                "It is the process of creating a model for distinguishing data into continuous real values, instead of using classes or discrete values. It can also identify the distribution movement depending on historical data. It is used for predicting the occurrence of an event depending on the degree of association of variables. For example, the prediction of weather conditions depends on factors such as temperature, air pressure, solar radiation, elevation, and distance from the sea. The relation among these factors assists in predicting the weather condition."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Linear Regression",
+            "patterns": [
+                "What is Linear Regression",
+                "Explain  linear Regression"
+            ],
+            "responses": [
+                "Linear Regression is a supervised Machine Learning algorithm. It is used to find the linear relationship between the dependent and independent variables for predictive analysis."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Logistic Regression",
+            "patterns": [
+                "What is Logistic Regression",
+                "Explain  logistic Regression"
+            ],
+            "responses": [
+                "Logistic regression is the proper regression analysis used when the dependent variable is categorical or binary. Like all regression analyses, logistic regression is a technique for predictive analysis. Logistic regression is used to explain data and the relationship between one dependent binary variable and one or more independent variables. Logistic regression is also employed to predict the probability of categorical dependent variables."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Decision Tree",
+            "patterns": [
+                "What is Decision Tree",
+                "Explain  Decision Tree"
+            ],
+            "responses": [
+                "A decision tree is used to explain the sequence of actions that must be performed to get the desired output. It is a hierarchical diagram that shows the actions."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Principal component Analysis or PCA",
+            "patterns": [
+                "What is PCA",
+                "Explain PCA",
+                "What is Principal component Analysis",
+                "Explain Principal component Analysis"
+            ],
+            "responses": [
+                "Multidimensional data is at play in the real world. Data visualization and computation become more challenging with the increase in dimensions. In such a scenario, the dimensions of data might have to be reduced to analyze and visualize it easily. This is done by: Removing irrelevant dimensions. Keeping only the most relevant dimensions. This is where Principal Component Analysis (PCA) is used."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Roc curve",
+            "patterns": [
+                "What is Roc Curve",
+                "Explain roc curve",
+                "What do you understand from roc curve"
+            ],
+            "responses": [
+                "The ROC curve is a graphical representation of the contrast between true positive rates and the false positive rate at various thresholds. Its often used as a proxy for the trade-off between the sensitivity of the model (true positives) vs the fall-out or the probability it will trigger a false alarm (false positives)."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "precision and recall",
+            "patterns": [
+                " Define precision and recall",
+                "Explain Precision and recall"
+            ],
+            "responses": [
+                "Recall is also known as the true positive rate: the amount of positives your model claims compared to the actual number of positives there are throughout the data. Precision is also known as the positive predictive value, and it is a measure of the amount of accurate positives your model claims compared to the number of positives it actually claims. It can be easier to think of recall and precision in the context of a case where youve predicted that there were 10 apples and 5 oranges in a case of 10 apples. Youd have perfect recall (there are actually 10 apples, and you predicted there would be 10) but 66.7% precision because out of the 15 events you predicted, only 10 (the apples) are correct."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Bayes Theorem",
+            "patterns": [
+                "What is Bayes Theorem",
+                "Explain Bayes Theorem"
+            ],
+            "responses": [
+                "Bayes Theorem gives you the posterior probability of an event given what is known as prior knowledge. Mathematically, its expressed as the true positive rate of a condition sample divided by the sum of the false positive rate of the population and the true positive rate of a condition."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Naive Bayes Theorem",
+            "patterns": [
+                "What is naive Bayes Theorem",
+                "Explain Naive Bayes Theorem"
+            ],
+            "responses": [
+                "Despite its practical applications, especially in text mining, Naive Bayes is considered Naive because it makes an assumption that is virtually impossible to see in real-life data: the conditional probability is calculated as the pure product of the individual probabilities of components. This implies the absolute independence of features — a condition probably never met in real life."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Deep Learning",
+            "patterns": [
+                "What is Deep Learning",
+                "Explain Deep Learning",
+                "how does deep learning contrast with other machine learning algorithms"
+            ],
+            "responses": [
+                "Deep learning is a subset of machine learning that is concerned with neural networks: how to use backpropagation and certain principles from neuroscience to more accurately model large sets of unlabelled or semi-structured data. In that sense, deep learning represents an unsupervised learning algorithm that learns representations of data through the use of neural nets."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Hash Table",
+            "patterns": [
+                "What is Hash table",
+                "Explain Hash table"
+            ],
+            "responses": [
+                "A hash table is a data structure that produces an associative array. A key is mapped to certain values through the use of a hash function. They are often used for tasks such as database indexing."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "data Mining",
+            "patterns": [
+                "What is data mining",
+                "Explain data mining"
+            ],
+            "responses": [
+                " Data mining can be defined as the process in which the unstructured data tries to extract knowledge or unknown interesting patterns. During this process machine, learning algorithms are used."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Overfitting",
+            "patterns": [
+                "What is overfitting",
+                "Explain overfitting and why it happens"
+            ],
+            "responses": [
+                "In machine learning, when a statistical model describes random error or noise instead of underlying relationship ‘overfitting occurs. When a model is excessively complex, overfitting is normally observed, because of having too many parameters with respect to the number of training data types. The model exhibits poor performance which has been overfit. The possibility of overfitting exists as the criteria used for training the model is not the same as the criteria used to judge the efficacy of a model."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Training set and test set",
+            "patterns": [
+                "what is Training set and test set"
+            ],
+            "responses": [
+                "In various areas of information science like machine learning, a set of data is used to discover the potentially predictive relationship known as Training Set. Training set is an examples given to the learner, while Test set is used to test the accuracy of the hypotheses generated by the learner, and it is the set of examples held back from the learner. Training set are distinct from Test set."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "support vector machine SVM",
+            "patterns": [
+                "What is Support vector machine",
+                "What is SVM"
+            ],
+            "response": [
+                "SVM is a Machine Learning algorithm that is majorly used for classification. It is used on top of the high dimensionality of the characteristic vector."
+            ],
+            "context": [
+                ""
+            ]
+        },
+        {
+            "tag": "Confusion Matrix",
+            "patterns": [
+                "What is confusion matrix",
+                "Explain confusion matrix"
+            ],
+            "responses": [
+                "Confusion matrix is used to explain a models performance and gives the summary of predictions of the classification problems. It assists in identifying the uncertainty between classes."
+            ],
+            "context": [
+                ""
+            ]
+        }
+    ]
+}
