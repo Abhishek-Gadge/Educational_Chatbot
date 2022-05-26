@@ -101,7 +101,8 @@ but=tk.Button(window,text="QUIT",width=8,command=window.quit,bg="#C0C0C0")
 but.pack(pady=3,side=TOP)
 
 # DATABASE FUNCTIONS STARTS
-conn = mysql.connector.connect(host="localhost", port=3306, user="root", passwd="8805",auth_plugin="mysql_native_password")
+conn = mysql.connector.connect(host="localhost", port=3306, user="root", passwd="your host password
+                               ",auth_plugin="mysql_native_password")
 
 def db_create_db(conn):
     mycursor = conn.cursor()
