@@ -3,8 +3,8 @@
 # # nltk.download('omw-1.4')
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
-from tensorflow.python.keras.optimizers import *
 #from tensorflow.keras.optimizers import SGD
+from tensorflow.python.keras.optimizers import *
 
 import nltk
 from nltk.stem import WordNetLemmatizer
@@ -17,7 +17,36 @@ from tkinter import *
 from keras.models import load_model
 import random
 
-model = load_model('final_project\\chatbot_model.h5')
+import wikipedia
+import datetime
+import os
+import sys
+import webbrowser
+import time
+from PyQt5.QtCore import QTimer
+from tkinter import *
+from PIL import ImageTk,Image
+import pyttsx3
+import speech_recognition as sr
+import datetime
+import pytz
+import wikipedia 
+import webbrowser
+import os
+import pyautogui
+import subprocess
+import re
+import requests
+import time
+import winapps
+import winshell
+import ctypes
+import win32com.client as wincl
+from tkinter import messagebox
+import mysql.connector as sql
+from bs4 import BeautifulSoup
+
+model = load_model('chatbot_model.h5')
 
 
 
@@ -25,7 +54,7 @@ model = load_model('final_project\\chatbot_model.h5')
 # classes = []
 # documents = []
 # ignore_words = ['?', '!']
-# data_file = open('educational_chatbot\\base2\\intents.json').read()
+# data_file = open('intents.json').read()
 # intents = json.loads(data_file)
 
 # for intent in intents['intents']:
@@ -64,7 +93,7 @@ model = load_model('final_project\\chatbot_model.h5')
 # # training set, bag of words for each sentence
 # for doc in documents:
 #     # initialize our bag of words
-#     bag = []
+#     bag = [] 
 #     # list of tokenized words for the pattern
 #     pattern_words = doc[0]
 #     # lemmatize each word - create base word, in attempt to represent related words
@@ -101,16 +130,16 @@ model = load_model('final_project\\chatbot_model.h5')
 # model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # #fitting and saving the model 
-# hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+# hist = model.fit(np.array(train_x), np.array(train_y), epochs=300, batch_size=5, verbose=1)
 # model.save('chatbot_model.h5', hist)
 
 # print("model created")
 
 
 
-intents = json.loads(open('final_project\\intents.json').read())
-words = pickle.load(open('final_project\\words.pkl','rb'))
-classes = pickle.load(open('final_project\\classes.pkl','rb'))
+intents = json.loads(open('intents.json').read())
+words = pickle.load(open('words.pkl','rb'))
+classes = pickle.load(open('classes.pkl','rb'))
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
@@ -149,21 +178,25 @@ def predict_class(sentence, model):
 def getResponse(ints, intents_json):
     try:
         tag = ints[0]['intent']
-        print(type(tag))
         list_of_intents = intents_json['intents']
         for i in list_of_intents:
             if(i['tag']== tag):
                 result = random.choice(i['responses'])
                 break
+        length=len(result)
+        if length==1:
+            result=NONE
         return result
     except IndexError:
-        result=None
-        return result   
-    
+        result=NONE
+        print(result)
+        return result 
 
 def chatbot_response(text):
     ints = predict_class(text, model)
     res = getResponse(ints, intents)
+    if res==NONE:
+        res=search(text)
     return res
 
 
@@ -181,8 +214,191 @@ def send():
 
         ChatLog.config(state=DISABLED)
         ChatLog.yview(END)
+
+def web_scraping(qs):
+                global flag2
+                global loading
+
+                URL = 'https://www.google.com/search?q=' + qs
+                page = requests.get(URL)
+
+                soup = BeautifulSoup(page.content, 'html.parser')
+
+                links = soup.findAll("a")
+                all_links = []
+                for link in links:
+                        link_href = link.get('href')
+                        if "url?q=" in link_href and not "webcache" in link_href:
+                                all_links.append((link.get('href').split("?q=")[1].split("&sa=U")[0]))
+
+
+                flag= False
+                for link in all_links:
+                        if 'https://en.wikipedia.org/wiki/' in link:
+                                wiki = link
+                                flag = True
+                                break
+
+                div0 = soup.find_all('div',class_="kvKEAb")
+                div1 = soup.find_all("div", class_="Ap5OSd")
+                div2 = soup.find_all("div", class_="nGphre")
+                div3  = soup.find_all("div", class_="BNeawe iBp4i AP7Wnd")
+
+                if len(div0)!=0:
+                        answer = div0[0].text
+                elif len(div1) != 0:
+                        answer = div1[0].text+"\n"+div1[0].find_next_sibling("div").text
+                elif len(div2) != 0:
+                        answer = div2[0].find_next("span").text+"\n"+div2[0].find_next("div",class_="kCrYT").text
+                elif len(div3)!=0:
+                        answer = div3[1].text
+                elif flag==True:
+                        page2 = requests.get(wiki)
+                        soup = BeautifulSoup(page2.text, 'html.parser')
+                        title = soup.select("#firstHeading")[0].text
+
+                        paragraphs = soup.select("p")
+                        for para in paragraphs:
+                                if bool(para.text.strip()):
+                                        answer = title + "\n" + para.text
+                                        break
+                else:
+                        answer = "Sorry. I could not find the desired results"
+                return answer
+
         
-        
+def search(query):
+                try:
+                        
+                                if 'wikipedia' in query:
+                                        query = query.replace("wikipedia", "")
+                                        result = wikipedia.summary(query, sentences=2)
+                                        print(result)
+                                        return result 
+
+
+                                elif 'open youtube' in query:
+                                        webbrowser.open_new_tab("https://www.youtube.com")
+                                        result="Youtube is opening now"
+                                        print(result)
+                                        time.sleep(2)
+                                        return result
+
+                                elif 'open google' in query:
+                                        webbrowser.open("google.com")
+                                        result="Google is opening now"
+                                        time.sleep(2)
+                                        return result
+
+
+
+                                elif 'open gmail' in query:
+                                        webbrowser.open_new_tab("https://bit.ly/3iOcR5z")
+                                        result="Google Mail opening now"  
+                                        time.sleep(2)
+                                        return result
+
+                                
+                                elif 'time' in query:
+                                        current_time = datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
+                                        #speak(str(current_time.hour)+'hour'+str(current_time.minute)+'minutes')
+                                        return current_time
+
+                                elif 'open chrome' in query:
+                                        chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome"
+                                        os.startfile(chromePath)
+                                        result="Chrome is opening"
+                                        time.sleep(2)
+                                        return result
+
+                                elif 'change tab' in query:
+                                        pyautogui.keyDown("alt")
+                                        pyautogui.press("tab")
+                                        pyautogui.keyUp("alt")
+                                        result="Changing tab"
+                                        return result
+
+                                elif 'open calculator' in query:
+                                        subprocess.Popen('C:\\Windows\\SysWOW64\\calc.exe')
+                                        result="CALCULATOR IS OPENING"
+                                        time.sleep(2)
+                                        return result
+
+                                elif 'open notepad' in query:
+                                        subprocess.Popen('C:\Windows\SysWOW64\\notepad.exe')
+                                        result="NOTEPAD IS OPENING"
+                                        time.sleep(2)
+                                        return result
+
+                                elif "log off" in query or "sign out" in query:
+                                        #speak("Ok , your pc will log off in 10 sec make sure you exit from all applications")
+                                        subprocess.call(["shutdown", "/l"])
+
+
+                                elif 'lock window' in query:
+                                                #speak("locking the device")
+                                                ctypes.windll.user32.LockWorkStation()
+                                
+                                elif 'shutdown' in query:
+                                                #speak("Hold On a Sec ! Your system is on its way to shut down")
+                                                subprocess.call('shutdown / p /f')
+                                                
+                                elif 'empty recycle bin' in query:
+                                        winshell.recycle_bin().empty(confirm = False, show_progress = True, sound = True)
+                                        result="Recycle Bin Recycled"
+                                        return result
+                                        
+                                elif 'change background' in query:
+                                        ctypes.windll.user32.SystemParametersInfoW(20, 
+                                                                                0, 
+                                                                                "Location of wallpaper",
+                                                                                0)
+                                        #speak("Background changed succesfully")
+
+                                
+
+                                elif 'task manager' in query:
+                                        pyautogui.hotkey('ctrl','shift','esc')
+                                        results="opening task manager"
+                                        time.sleep(2)
+                                        return results
+
+                                elif 'screenshot' in query:
+                                        pyautogui.hotkey('win','shift','s')
+                                        results="Taking screenshot"
+                                        time.sleep(5)
+                                        return results
+
+                                
+                                elif 'search' in query or 'play' in query:
+                                        query = query.replace("search", "")           
+                                        #result=web_scraping(query)
+                                        return result
+
+                                
+                                
+                                elif 'settings' in query:
+                                        subprocess.Popen([r"C:\\Windows\\SysWOW64\\DpiScaling.exe"])
+                                        result="opening settings"
+                                        return result
+
+                                elif 'device manager' in query:
+                                        subprocess.call("control /name Microsoft.DeviceManager")
+                                        result="opening device manager"
+                                        return result
+                                
+                                elif 'devices' in query:
+                                        os.system('control /name Microsoft.DevicesAndPrinters')
+                                        result="displaying devices list"
+                                        return result
+
+                                else:
+                                        result=web_scraping(query)
+                                        return result        
+                except:
+                        result="Say that again please"
+                        return result
+
 base = Tk()
 base.title("CHATBOT")
 base.geometry("400x500")
